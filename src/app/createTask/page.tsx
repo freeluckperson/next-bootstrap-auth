@@ -49,10 +49,10 @@ export default function RegisterPage() {
           <input
             className="form-control"
             type="text"
-            {...register("title", { required: true })}
+            {...register("title", { required: true, maxLength: 25 })}
             placeholder="Title"
           />
-          {errors.title && <p>This field is required</p>}
+          {errors.title && <p>This field is required, max 25 character</p>}
         </div>
         <div className="mb-2">
           <textarea
