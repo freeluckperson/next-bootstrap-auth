@@ -48,7 +48,7 @@ export default function RegisterPage() {
           <p className="form-control bg-danger text-white fw-bold">{error}</p>
         )}
 
-        <h3 className="fw-bold">Register</h3>
+        <h3 className="fw-bold text-secondary ">Register</h3>
         <div className="mb-2">
           <input
             className="form-control"

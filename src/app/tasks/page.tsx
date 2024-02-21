@@ -15,18 +15,62 @@ interface CardProps {
   onDelete: (id: string) => void;
 }
 
+// function Card(props: CardProps) {
+//   const { tasks, onDelete } = props;
+
+//   return (
+//     <>
+//       {tasks?.map((task, i) => (
+//         <div className="col-md-4  mt-4" key={i}>
+//           <div className="card text-bg-secondary    h-100 ">
+//             <div className="card-body">
+//               <div className="text-end mb-3 ">
+//                 <button
+//                   className="btn btn-outline-dark "
+//                   onClick={() => onDelete(task._id)}
+//                 >
+//                   X
+//                 </button>
+//               </div>
+//               <div>
+//                 <h2 className="card-title text-center">{task.title}</h2>
+//                 <p
+//                   className="card-text fw-bold "
+//                   style={{ textAlign: "justify", textIndent: "1em" }}
+//                 >
+//                   {task.description}
+//                 </p>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       ))}
+//     </>
+//   );
+// }
+
 function Card(props: CardProps) {
   const { tasks, onDelete } = props;
 
   return (
     <>
       {tasks?.map((task, i) => (
-        <div className="col-md-4  mt-4" key={i}>
-          <div className="card text-bg-secondary    h-100 ">
+        <div className="col-md-4 mt-4" key={i}>
+          <div
+            className={`card h-100 ${
+              i % 4 === 0
+                ? "text-bg-warning"
+                : i % 4 === 1
+                ? "text-bg-primary"
+                : i % 4 === 2
+                ? "text-bg-danger"
+                : "text-bg-success"
+            }`}
+          >
             <div className="card-body">
-              <div className="text-end mb-3 ">
+              <div className="text-end mb-3">
                 <button
-                  className="btn btn-outline-dark "
+                  className="btn btn-outline-dark"
                   onClick={() => onDelete(task._id)}
                 >
                   X
@@ -35,7 +79,7 @@ function Card(props: CardProps) {
               <div>
                 <h2 className="card-title text-center">{task.title}</h2>
                 <p
-                  className="card-text fw-bold "
+                  className="card-text fw-bold"
                   style={{ textAlign: "justify", textIndent: "1em" }}
                 >
                   {task.description}

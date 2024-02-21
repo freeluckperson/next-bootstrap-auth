@@ -25,18 +25,20 @@ export default function Navbar() {
     <div className="container">
       <nav className="navbar navbar-expand-sm ">
         <div className="container-fluid">
-          <Image
-            className="navbar-brand"
-            src="/logo.png"
-            alt="Next.js Logo"
-            width={35}
-            height={35}
-            style={{
-              width: "auto",
-              height: "auto",
-            }}
-            priority
-          />
+          <Link href="/">
+            <Image
+              className="navbar-brand"
+              src="/logo.png"
+              alt="Next.js Logo"
+              width={35}
+              height={35}
+              style={{
+                width: "auto",
+                height: "auto",
+              }}
+              priority
+            />
+          </Link>
           <button
             className="navbar-toggler"
             type="button"

@@ -43,7 +43,7 @@ export default function LoginPage() {
           <p className="form-control bg-danger text-white fw-bold">{error}</p>
         )}
 
-        <h3 className="fw-bold">Login</h3>
+        <h3 className="fw-bold text-secondary ">Login</h3>
         <div className="mb-2">
           <input
             className="form-control"
