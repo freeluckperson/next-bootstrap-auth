@@ -15,7 +15,7 @@ function Slide() {
                 target="_blank"
               >
                 <Image
-                  src="/js.svg"
+                  src="/ts.svg"
                   className="d-block w-100"
                   alt="..."
                   width={0}
@@ -27,7 +27,7 @@ function Slide() {
             <div className="carousel-item ">
               <a href="https://www.typescriptlang.org/" target="_blank">
                 <Image
-                  src="/ts.svg"
+                  src="/js.svg"
                   className="d-block w-100"
                   alt="..."
                   width={0}
