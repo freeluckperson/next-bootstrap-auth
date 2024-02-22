@@ -8,13 +8,13 @@ export default function Footer() {
       <div className="text-center p-3">
         © {format(now, "es", { dateStyle: "long" })}{" "}
         <a
-          className="text-decoration-none text-white"
+          className="text-decoration-none text-white fw-bold "
           href="https://freeluckperson.github.io/my-web-gh-pages/"
           target="_blank"
         >
           Click here{" "}
         </a>
-        to go to my portfolio
+        to go to my portfolio.
       </div>
     </footer>
   );

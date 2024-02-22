@@ -18,14 +18,17 @@ export async function GET(
   }
 }
 
-export async function PUT(request: Request, { params }: { params: string }) {
+export async function PUT(
+  request: Request,
+  { params }: { params: { id: string } }
+) {
   try {
     await connectDB();
     const id = params.id;
     const { title, description } = await request.json();
     if (
-      [title, description].some((field) => typeof field !== "string") ||
-      [title, description].some((field) => field.trim() === "")
+      [title, description, id].some((field) => typeof field !== "string") ||
+      [title, description, id].some((field) => field.trim() === "")
     )
       return NextResponse.json(
         { message: "Each field is required and must be a string" },
@@ -38,7 +41,10 @@ export async function PUT(request: Request, { params }: { params: string }) {
   }
 }
 
-export async function DELETE(request: Request, { params }: { params: string }) {
+export async function DELETE(
+  request: Request,
+  { params }: { params: { id: string } }
+) {
   try {
     connectDB();
     const id = params.id;
