@@ -71,7 +71,7 @@ export default function RegisterPage() {
             className="form-control"
             type="text"
             {...register("user", { required: true })}
-            value={data?.user._id} //corrige data is possible undefined
+            value={data?.user?._id} //corrige data is possible undefined
             placeholder="User"
           />
           {errors.user && <p>This field is required</p>}
