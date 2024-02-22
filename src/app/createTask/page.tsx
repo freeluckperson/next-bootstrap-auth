@@ -22,8 +22,8 @@ export default function RegisterPage() {
     const user = data as { title: string; description: string; user: string };
 
     try {
-      const response = await axios.post("/api/task", user);
-      if (response.statusText === "OK") return router.push("/tasks");
+      await axios.post("/api/task", user);
+      router.push("/tasks");
     } catch (error: any) {
       setError(error?.response.data.message);
     }
