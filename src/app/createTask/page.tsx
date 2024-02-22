@@ -18,7 +18,11 @@ export default function RegisterPage() {
     reset,
   } = useForm();
 
-  const onSubmit = async (user) => {
+  const onSubmit = async (user: {
+    title: string;
+    description: string;
+    user: string;
+  }) => {
     try {
       const response = await axios.post("/api/task", user);
       if (response.statusText === "OK") return router.push("/tasks");
