@@ -96,7 +96,7 @@ function Card(props: CardProps) {
 export default function TaskPage() {
   const [tasks, setTasks] = useState<Task[] | null>(null);
   const [show, setShow] = useState(false);
-  const { data } = useSession();
+  const { data }: { data: any } = useSession();
 
   const handleDelete = async (id: string) => {
     try {

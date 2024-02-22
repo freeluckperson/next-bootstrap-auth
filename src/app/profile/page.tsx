@@ -3,7 +3,7 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 
 export default function ProfilePage() {
-  const { data, status } = useSession();
+  const { data, status }: { data: any; status: any } = useSession();
 
   return (
     <div className="container" style={{ marginTop: "50px" }}>

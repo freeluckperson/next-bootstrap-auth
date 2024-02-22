@@ -4,7 +4,7 @@ import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
 
 export default function RegisterPage() {
   const [error, setError] = useState(null);
@@ -17,7 +17,7 @@ export default function RegisterPage() {
     reset,
   } = useForm();
 
-  const onSubmit = async (user) => {
+  const onSubmit: SubmitHandler<FieldValues> = async (user) => {
     try {
       const response = await axios.post("/api/auth/signup", user);
       const res = await signIn("credentials", {
@@ -26,7 +26,7 @@ export default function RegisterPage() {
         redirect: false,
       });
       if (res?.ok) return router.push("/profile");
-    } catch (error) {
+    } catch (error: any) {
       setError(error?.response.data.message);
     }
   };
