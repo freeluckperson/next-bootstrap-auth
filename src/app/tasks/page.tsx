@@ -100,7 +100,7 @@ export default function TaskPage() {
 
   const handleDelete = async (id: string) => {
     try {
-      await axios.delete(`http://localhost:3000/api/task/${id}`);
+      await axios.delete(`/api/task/${id}`);
 
       setTasks(
         (prevTasks) => prevTasks?.filter((task) => task._id !== id) || null
