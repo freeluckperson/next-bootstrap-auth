@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
 
 export default function RegisterPage() {
   const [error, setError] = useState(null);
@@ -18,15 +18,13 @@ export default function RegisterPage() {
     reset,
   } = useForm();
 
-  const onSubmit = async (user: {
-    title: string;
-    description: string;
-    user: string;
-  }) => {
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    const user = data as { title: string; description: string; user: string };
+
     try {
       const response = await axios.post("/api/task", user);
       if (response.statusText === "OK") return router.push("/tasks");
-    } catch (error:any) {
+    } catch (error: any) {
       setError(error?.response.data.message);
     }
   };
@@ -44,11 +42,12 @@ export default function RegisterPage() {
         marginBottom: "260px",
       }}
     >
-      <form onSubmit={handleSubmit(onSubmit)}> //corrige onSubmit con typescript
+      <form onSubmit={handleSubmit(onSubmit)}>
+        {" "}
+        //corrige onSubmit con typescript
         {error && (
           <p className="form-control bg-danger text-white fw-bold">{error}</p>
         )}
-
         <h3 className="fw-bold text-secondary ">Create Task</h3>
         <div className="mb-2">
           <input
