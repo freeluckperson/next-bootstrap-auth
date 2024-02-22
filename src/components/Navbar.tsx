@@ -58,32 +58,37 @@ export default function Navbar() {
                 </Link>
               </li>
 
-              <>
-                <li className="nav-item">
-                  <Link href="/tasks" className="nav-link " aria-current="page">
-                    Tasks
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link
-                    href="/createTask"
-                    className="nav-link "
-                    aria-current="page"
-                  >
-                    Create
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link
-                    href="/profile"
-                    className="nav-link "
-                    aria-disabled="true"
-                  >
-                    Profile
-                  </Link>
-                </li>
-              </>
-
+              {actualStatus && (
+                <>
+                  <li className="nav-item">
+                    <Link
+                      href="/tasks"
+                      className="nav-link "
+                      aria-current="page"
+                    >
+                      Tasks
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link
+                      href="/createTask"
+                      className="nav-link "
+                      aria-current="page"
+                    >
+                      Create
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link
+                      href="/profile"
+                      className="nav-link "
+                      aria-disabled="true"
+                    >
+                      Profile
+                    </Link>
+                  </li>
+                </>
+              )}
               <li className="nav-item">
                 <Link href="/about" className="nav-link">
                   About
