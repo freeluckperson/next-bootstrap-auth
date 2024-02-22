@@ -9,7 +9,7 @@ import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
 export default function RegisterPage() {
   const [error, setError] = useState(null);
   const router = useRouter();
-  const { data } = useSession();
+  const { data }: { data: any } = useSession();
 
   const {
     register,
@@ -71,7 +71,7 @@ export default function RegisterPage() {
             className="form-control"
             type="text"
             {...register("user", { required: true })}
-            value={data?.user?._id} //corrige data is possible undefined
+            value={data.user._id}
             placeholder="User"
           />
           {errors.user && <p>This field is required</p>}
