@@ -1,6 +1,9 @@
 export default function Footer() {
-  const format = (date, locale, options) =>
-    new Intl.DateTimeFormat(locale, options).format(date);
+  const format = (
+    date: Date,
+    locale: string,
+    options: Intl.DateTimeFormatOptions
+  ) => new Intl.DateTimeFormat(locale, options).format(date);
   const now = new Date();
 
   return (
