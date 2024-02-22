@@ -16,7 +16,7 @@ export default function LoginPage() {
     reset,
   } = useForm();
 
-  const onSubmit = async (user) => {
+  const onSubmit = async (user: any) => {
     try {
       const res = await signIn("credentials", {
         email: user.email,
@@ -26,13 +26,13 @@ export default function LoginPage() {
 
       if (res?.error) return setError(res.error as string);
       if (res?.ok) return router.push("/profile");
-    } catch (error) {
+    } catch (error: any) {
       setError(error?.response.data.message);
     }
   };
 
   useEffect(() => {
-    const timer = setTimeout(() => setError(null), 3000);
+    const timer = setTimeout(() => setError(""), 3000);
     return () => clearTimeout(timer);
   }, [error]);
 
