@@ -43,8 +43,6 @@ export default function RegisterPage() {
       }}
     >
       <form onSubmit={handleSubmit(onSubmit)}>
-        {" "}
-        //corrige onSubmit con typescript
         {error && (
           <p className="form-control bg-danger text-white fw-bold">{error}</p>
         )}
@@ -71,7 +69,7 @@ export default function RegisterPage() {
             className="form-control"
             type="text"
             {...register("user", { required: true })}
-            value={data.user._id}
+            value={data?.user?._id}
             placeholder="User"
           />
           {errors.user && <p>This field is required</p>}
